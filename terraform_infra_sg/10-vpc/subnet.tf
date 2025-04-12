@@ -21,7 +21,7 @@ resource "aws_subnet" "public_subnet_cidr" {
   tags = merge(
     var.common_tags,
     {
-      Name = "${local.vpc_name}-public-subnet-${count.index}"
+      Name = "${local.vpc_name}-public-subnet-${count.index+1}"
     }
   )
 }
@@ -35,7 +35,7 @@ resource "aws_subnet" "private_subnet_cidr" {
   tags = merge(
     var.common_tags,
     {
-      Name = "${local.vpc_name}-private-subnet-${count.index}"
+      Name = "${local.vpc_name}-private-subnet-${count.index+1}"
     }
   )
 }
@@ -49,7 +49,7 @@ resource "aws_subnet" "database_subnet_cidr" {
   tags = merge(
     var.common_tags,
     {
-      Name = "${local.vpc_name}-database-subnet-${count.index}"
+      Name = "${local.vpc_name}-database-subnet-${count.index+1}"
     }
   )
 }
